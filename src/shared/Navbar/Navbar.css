@@ -1,0 +1,12 @@
+.bg-custom {
+  background-color: #eaf2fa;
+}
+
+.navbar-brand {
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: "Lobster", cursive;
+}
+.nav-profile-section button {
+  font-size: 1.3rem;
+}

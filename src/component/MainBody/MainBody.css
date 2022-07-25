@@ -1,0 +1,23 @@
+.content-section {
+  border-left: 1px solid rgba(128, 128, 128, 0.551);
+  border-right: 1px solid rgba(128, 128, 128, 0.551);
+  height: 85vh;
+  overflow-y: scroll;
+}
+.head-img img {
+  width: 70px;
+  border-radius: 50%;
+}
+.head-title-date {
+  font-size: 15px;
+  font-weight: 500;
+  color: #8b969f;
+}
+.post-description {
+  text-align: justify;
+}
+.post-img img {
+  height: 450px;
+  width: 100%;
+  border-radius: 10px;
+}

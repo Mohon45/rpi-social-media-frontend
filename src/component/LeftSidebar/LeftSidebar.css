@@ -1,0 +1,9 @@
+.sidebar {
+  background-color: #dbe0e0ca;
+  padding: 20px;
+  border-radius: 10px;
+}
+.btn-custom {
+  font-size: 1.5rem;
+  padding: 0 100px 5px 100px;
+}
