@@ -1,11 +1,12 @@
 import React from "react";
+import useAuth from "../../hooks/useAuth";
 import LeftSidebar from "../LeftSidebar/LeftSidebar";
 import MainBody from "../MainBody/MainBody";
 import RightSidebar from "../RightSidebar/RightSidebar";
 
 const Home = () => {
-  const user = JSON.parse(localStorage.getItem("user"));
-  console.log(user);
+  const { user } = useAuth();
+  console.log(user.displayName, user.email);
   return (
     <div className="container">
       <div className="row mt-3">

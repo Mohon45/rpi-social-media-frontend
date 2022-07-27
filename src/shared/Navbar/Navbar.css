@@ -10,3 +10,11 @@
 .nav-profile-section button {
   font-size: 1.3rem;
 }
+.dropdown-menu {
+  margin-right: 3rem !important;
+}
+
+.log-out-nav-item {
+  text-decoration: none;
+  font-size: 2rem;
+}

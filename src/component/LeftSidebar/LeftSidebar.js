@@ -1,10 +1,11 @@
 import React from "react";
+import CreateTweetPost from "../TweetPost/CreateTweetPost";
 import "./LeftSidebar.css";
 
 const LeftSidebar = () => {
   return (
     <div>
-      <div className="sidebar">
+      <div className="sidebar left-sidebar">
         <div className="d-flex align-items-center">
           <i class="fa-solid fa-house fa-2x"></i>
           <h4 className="mt-2 ms-3">Home</h4>
@@ -35,10 +36,6 @@ const LeftSidebar = () => {
         </div>
 
         <div className="mt-3">
-          {/* <button type="button" class="btn btn-primary btn-custom">
-            Tweet
-          </button> */}
-          {/* Button trigger modal */}
           <button
             type="button"
             class="btn btn-primary btn-custom"
@@ -60,17 +57,20 @@ const LeftSidebar = () => {
           >
             <div class="modal-dialog">
               <div class="modal-content">
-                <div class="modal-footer">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="staticBackdropLabel">
+                    Create Your Tweet
+                  </h5>
                   <button
                     type="button"
-                    class="btn btn-secondary"
+                    class="btn-close"
                     data-bs-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button type="button" class="btn btn-primary">
-                    Understood
-                  </button>
+                    aria-label="Close"
+                  ></button>
+                </div>
+                {/* body */}
+                <div class="modal-body">
+                  <CreateTweetPost />
                 </div>
               </div>
             </div>

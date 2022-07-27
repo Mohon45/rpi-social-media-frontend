@@ -1,14 +1,12 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
-import axios from "axios";
 import { useForm } from "react-hook-form";
 import Loader from "../../../shared/Loader/Loader";
+import useAuth from "../../../hooks/useAuth";
 
 const Register = () => {
-  const [loading, setLoading] = useState(false);
-
-  const navigate = useNavigate();
+  const { registerUser, isLoading } = useAuth();
 
   const {
     register,
@@ -16,44 +14,26 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  const registerUser = (data) => {
-    setLoading(true);
-    axios
-      .post("http://localhost:5001/api/registration", data, {
-        headers: { "content-type": "application/json" },
-      })
-      .then((res) => {
-        if (res.status === 200) {
-          console.log(res.data);
-          toast.success("Registration Successfull!");
-          setLoading(false);
-          navigate("/");
-        }
-      })
-      .catch((error) => {
-        console.log(error.response);
-        toast.error("Something Went Wrong! Try to latter.");
-        setLoading(false);
-      });
-  };
-
   const onSubmitHandler = (data) => {
-    console.log(data);
-    localStorage.setItem("user", JSON.stringify(data));
-    registerUser(data);
+    const { name, email, password, password2 } = data;
+    if (password !== password2) {
+      toast.error("Password not Match!");
+      return;
+    }
+    registerUser(email, password, name);
   };
 
   return (
     <div>
-      {loading ? (
+      {isLoading ? (
         <Loader />
       ) : (
         <div
-          className="card sign-in-box mx-auto mt-5"
-          style={{ width: "35rem", height: "80vh" }}
+          className="card sign-in-box mx-auto mt-2"
+          style={{ width: "35rem", height: "85vh" }}
         >
           <div className="card-body">
-            <h2 className="text-center fw-bold">Registration</h2>
+            <h2 className="text-center fw-bold">Registration CMT 19-20</h2>
             <div className="w-75 mx-auto mt-5">
               <form onSubmit={handleSubmit(onSubmitHandler)}>
                 <div className="mb-3">
@@ -104,6 +84,22 @@ const Register = () => {
                     placeholder="enter your password"
                     className="form-control"
                     id="exampleInputPassword1"
+                  />
+                </div>
+                <div className="mb-3">
+                  <label
+                    htmlFor="exampleInputPassword2"
+                    className="form-label fw-bold"
+                  >
+                    Confirm Password
+                  </label>
+                  <input
+                    type="password"
+                    name="password2"
+                    {...register("password2")}
+                    placeholder="confirm your password"
+                    className="form-control"
+                    id="exampleInputPassword2"
                   />
                 </div>
                 <Link style={{ textDecoration: "none" }} to="/">

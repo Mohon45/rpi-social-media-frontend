@@ -1,15 +1,12 @@
-import axios from "axios";
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
 import "./Login.css";
 import Loader from "../../../shared/Loader/Loader";
+import useAuth from "../../../hooks/useAuth";
 
 const Login = () => {
-  const [loading, setLoading] = useState(false);
-
-  const navigate = useNavigate();
+  const { loginUser, isLoading } = useAuth();
 
   const {
     register,
@@ -17,39 +14,14 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const loginUser = (data) => {
-    setLoading(true);
-    axios
-      .post("http://localhost:5001/api/login", data, {
-        headers: { "content-type": "application/json" },
-      })
-      .then((res) => {
-        if (res.status === 200) {
-          toast.success("Login SuccessFull!");
-          setLoading(false);
-          navigate("/home");
-        }
-      })
-      .catch((error) => {
-        toast.error("Something Wrong! Try to Latter.");
-        setLoading(false);
-      });
-  };
-
   const onSubmitHandler = (data) => {
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (data.password === user.password) {
-      console.log(data);
-      console.log(user);
-      loginUser(data);
-    } else {
-      toast.error("Password did not match!");
-    }
+    const { email, password } = data;
+    loginUser(email, password);
   };
 
   return (
     <div>
-      {loading ? (
+      {isLoading ? (
         <Loader />
       ) : (
         <div
@@ -57,7 +29,7 @@ const Login = () => {
           style={{ width: "35rem", height: "80vh" }}
         >
           <div className="card-body">
-            <h2 className="text-center fw-bold">Login</h2>
+            <h2 className="text-center fw-bold">Login CMT 19-20</h2>
             <div className="w-75 mx-auto mt-5">
               <form onSubmit={handleSubmit(onSubmitHandler)}>
                 <div className="mb-3">
