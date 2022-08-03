@@ -21,7 +21,7 @@ const MainBody = () => {
         setLoading(false);
         console.log(error.response);
       });
-  }, []);
+  }, [rows]);
 
   return (
     <div>
@@ -30,7 +30,7 @@ const MainBody = () => {
       ) : (
         <div className="content-section p-3">
           {rows.map((item, index) => (
-            <div className="card mx-3" key={index}>
+            <div className="card mx-3 mb-2" key={index}>
               <div className="card-body">
                 <div className="d-flex">
                   <div className="head-img">
@@ -61,22 +61,22 @@ const MainBody = () => {
                     </div>
                     <div className="d-flex justify-content-between mt-3">
                       <div className="d-flex align-items-center ms-2">
-                        <i class="fa-solid fa-heart"></i>
+                        <i className="fa-solid fa-heart"></i>
                         <p className="m-0 ms-2">34</p>
                       </div>
 
                       <div className="d-flex align-items-center">
-                        <i class="fa-solid fa-comment"></i>
+                        <i className="fa-solid fa-comment"></i>
                         <p className="m-0 ms-2">34</p>
                       </div>
 
                       <div className="d-flex align-items-center">
-                        <i class="fa-solid fa-retweet"></i>
+                        <i className="fa-solid fa-retweet"></i>
                         <p className="m-0 ms-2">34</p>
                       </div>
 
                       <div className="d-flex align-items-center me-2">
-                        <i class="fa-solid fa-share"></i>
+                        <i className="fa-solid fa-share"></i>
                         <p className="m-0 ms-2">34</p>
                       </div>
                     </div>

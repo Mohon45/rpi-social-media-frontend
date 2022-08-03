@@ -19,7 +19,7 @@ const CreateTweetPost = () => {
     setLoading(true);
     let formData = new FormData();
     formData.append("description", data.description);
-    formData.append("avatar", data.image);
+    // formData.append("avatar", data.image);
     formData.append("name", user.displayName);
 
     axios
@@ -54,7 +54,7 @@ const CreateTweetPost = () => {
               rows="5"
             ></textarea>
           </div>
-          <div className="mb-3">
+          {/* <div className="mb-3">
             <label
               htmlFor="exampleInputFile"
               className="form-label fw-bold lebel-file"
@@ -68,7 +68,7 @@ const CreateTweetPost = () => {
               id="exampleInputFile"
               accept="image/*"
             />
-          </div>
+          </div> */}
           <div className="mb-3 text-center mt-2">
             <button
               type="submit"

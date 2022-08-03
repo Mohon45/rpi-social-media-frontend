@@ -8,15 +8,15 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav class="navbar bg-custom">
-        <div class="container">
-          <a class="navbar-brand" href="#">
+      <nav className="navbar bg-custom">
+        <div className="container">
+          <a className="navbar-brand" href="#">
             CMT &nbsp; 19-20
           </a>
           {user.email ? (
             <div className="d-flex align-items-center">
               <h4 className="me-3">{user.displayName}</h4>
-              <div class="dropdown me-3">
+              <div className="dropdown me-3">
                 <span
                   className="dropdown-toggle"
                   data-bs-toggle="dropdown"
@@ -26,18 +26,18 @@ const Navbar = () => {
                     src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg"
                     width="60"
                     height="60"
-                    class="rounded-circle border border-4 "
+                    className="rounded-circle border border-4 "
                   />
                 </span>
 
-                <ul class="dropdown-menu">
+                <ul className="dropdown-menu">
                   <li>
-                    <Link class="dropdown-item" to="#">
+                    <Link className="dropdown-item" to="#">
                       Profile
                     </Link>
                   </li>
                   <li>
-                    <Link onClick={logout} class="dropdown-item" to="/">
+                    <Link onClick={logout} className="dropdown-item" to="/">
                       Log out
                     </Link>
                   </li>

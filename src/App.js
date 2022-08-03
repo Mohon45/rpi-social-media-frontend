@@ -7,6 +7,7 @@ import Login from "./component/Authentication/Login/Login";
 import Notify from "./shared/Notify/Notify";
 import Register from "./component/Authentication/Register/Register";
 import AuthProvider from "./contexts/AuthProvider/AuthProvider";
+import NotFound from "./component/NotFound/NotFound";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Login />} />
           <Route path="/registration" element={<Register />} />
           <Route path="/home" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Notify />
       </AuthProvider>

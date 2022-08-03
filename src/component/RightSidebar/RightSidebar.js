@@ -6,9 +6,9 @@ const RightSidebar = () => {
     <div>
       <div className="sidebar">
         <div>
-          <form class="d-flex" role="search">
+          <form className="d-flex" role="search">
             <input
-              class="form-control search-icon me-2"
+              className="form-control search-icon me-2"
               type="search"
               placeholder="&#xF002; Search"
               aria-label="Search"
