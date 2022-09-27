@@ -83,6 +83,7 @@ const useFirebase = () => {
       .then(() => {
         console.log("logout");
         setUser({});
+        navigate("/login");
         // Sign-out successful.
       })
       .catch((error) => {
@@ -93,7 +94,7 @@ const useFirebase = () => {
 
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName };
-    fetch("http://localhost:5000/api/users", {
+    fetch("https://rpi-social-media.onrender.com/api/users", {
       method: method,
       headers: {
         "content-type": "application/json",

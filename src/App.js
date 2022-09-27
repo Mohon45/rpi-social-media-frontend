@@ -15,9 +15,9 @@ function App() {
       <AuthProvider>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/registration" element={<Register />} />
-          <Route path="/home" element={<Home />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Notify />

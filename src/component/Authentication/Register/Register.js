@@ -102,7 +102,7 @@ const Register = () => {
                     id="exampleInputPassword2"
                   />
                 </div>
-                <Link style={{ textDecoration: "none" }} to="/">
+                <Link style={{ textDecoration: "none" }} to="/login">
                   Already Registered? Please Login
                 </Link>
                 <div className="mb-3 text-center mt-5">

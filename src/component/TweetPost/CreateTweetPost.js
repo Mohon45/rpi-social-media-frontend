@@ -23,7 +23,7 @@ const CreateTweetPost = () => {
     formData.append("name", user.displayName);
 
     axios
-      .post("http://localhost:5000/api/new-post", formData, {
+      .post("https://rpi-social-media.onrender.com/api/new-post", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

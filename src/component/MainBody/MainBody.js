@@ -10,7 +10,7 @@ const MainBody = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/all-post")
+      .get("https://rpi-social-media.onrender.com/api/all-post")
       .then((res) => {
         if (res.status === 200) {
           setRows(res.data);

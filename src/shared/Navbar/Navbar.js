@@ -5,6 +5,7 @@ import "./Navbar.css";
 
 const Navbar = () => {
   const { user, logout } = useAuth();
+  console.log(user);
 
   return (
     <div>
@@ -16,7 +17,7 @@ const Navbar = () => {
           {user.email ? (
             <div className="d-flex align-items-center">
               <h4 className="me-3">{user.displayName}</h4>
-              <div className="dropdown me-3">
+              <div className="dropdown profile-img me-3">
                 <span
                   className="dropdown-toggle"
                   data-bs-toggle="dropdown"
@@ -36,11 +37,19 @@ const Navbar = () => {
                       Profile
                     </Link>
                   </li>
-                  <li>
-                    <Link onClick={logout} className="dropdown-item" to="/">
-                      Log out
-                    </Link>
-                  </li>
+                  {user.email ? (
+                    <li>
+                      <Link onClick={logout} className="dropdown-item" to="/">
+                        Log out
+                      </Link>
+                    </li>
+                  ) : (
+                    <li>
+                      <Link className="dropdown-item" to="/login">
+                        Login
+                      </Link>
+                    </li>
+                  )}
                 </ul>
               </div>
             </div>
